@@ -649,9 +649,9 @@
 
         .menu-section-image {
             width: 100%;
-            height: 200px;
-            border-radius: var(--radius-lg);
-            margin-bottom: 25px;
+            height: 140px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -665,7 +665,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to right, rgba(43, 64, 39, 0.3) 0%, transparent 50%, rgba(76, 114, 42, 0.2) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 100%);
+        }
+
+        @media (max-width: 600px) {
+            .menu-section-image {
+                height: 100px;
+            }
         }
 
         /* Menu Items */
@@ -687,6 +693,45 @@
         .menu-item:hover {
             box-shadow: var(--shadow-medium);
             border-color: var(--primary);
+        }
+
+        /* Menu items with individual images */
+        .menu-item.has-image {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            padding: 16px;
+        }
+
+        .menu-item-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-sm);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .menu-item-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .menu-item.has-image .menu-item-header {
+            margin-bottom: 6px;
+        }
+
+        @media (max-width: 500px) {
+            .menu-item.has-image {
+                grid-template-columns: 80px 1fr;
+                gap: 14px;
+            }
+
+            .menu-item-image {
+                width: 80px;
+                height: 80px;
+            }
         }
 
         .menu-item-header {
@@ -1376,15 +1421,18 @@
                     <h2>Starters</h2>
                 </div>
                 <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <span class="signature-star">★</span>
-                                <h4>Sweet & Spicy Sprouts</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?w=300&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <span class="signature-star">★</span>
+                                    <h4>Sweet & Spicy Sprouts</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
+                            <p class="menu-item-description">Fresh crispy brussels sprouts tossed with Rice Krispies, drizzled with chili-infused honey and a sprinkle of parmigiana</p>
                         </div>
-                        <p class="menu-item-description">Fresh crispy brussels sprouts tossed with Rice Krispies, drizzled with chili-infused honey and a sprinkle of parmigiana</p>
                     </div>
 
                     <div class="menu-item">
@@ -1647,15 +1695,18 @@
                     <h2>Specialty Pasta</h2>
                 </div>
                 <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <span class="signature-star">★</span>
-                                <h4>Lobster Ravioli</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=300&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <span class="signature-star">★</span>
+                                    <h4>Lobster Ravioli</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$29</span><span class="price-divider">/</span><span class="price-card">$30.02</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$29</span><span class="price-divider">/</span><span class="price-card">$30.02</span></span>
+                            <p class="menu-item-description">Stuffed lobster ravioli in a creamy Cognac sauce with sautéed shallots, garlic, and chopped shrimp</p>
                         </div>
-                        <p class="menu-item-description">Stuffed lobster ravioli in a creamy Cognac sauce with sautéed shallots, garlic, and chopped shrimp</p>
                     </div>
 
                     <div class="menu-item">
@@ -1718,15 +1769,18 @@
                         <p class="menu-item-description">Our traditional San Marzano marinara with ricotta, mozzarella, & parmigiana cheeses, baked to bubbly perfection</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <span class="signature-star">★</span>
-                                <h4>Fettuccine Prosciutto</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1612874742237-6526221588e3?w=300&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <span class="signature-star">★</span>
+                                    <h4>Fettuccine Prosciutto</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$24</span><span class="price-divider">/</span><span class="price-card">$24.84</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$24</span><span class="price-divider">/</span><span class="price-card">$24.84</span></span>
+                            <p class="menu-item-description">Prosciutto, fresh zucchini, and crimini mushrooms in a rich garlic cream sauce</p>
                         </div>
-                        <p class="menu-item-description">Prosciutto, fresh zucchini, and crimini mushrooms in a rich garlic cream sauce</p>
                     </div>
                 </div>
             </section>
@@ -1887,15 +1941,18 @@
                     <span class="menu-section-note">Served with Pasta and House Salad (Caesar +$2)</span>
                 </div>
                 <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <span class="signature-star">★</span>
-                                <h4>Zuppa di Pesce</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=300&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <span class="signature-star">★</span>
+                                    <h4>Zuppa di Pesce</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$38</span><span class="price-divider">/</span><span class="price-card">$39.33</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$38</span><span class="price-divider">/</span><span class="price-card">$39.33</span></span>
+                            <p class="menu-item-description">Jumbo shrimp, calamari, fresh clams & mussels, sautéed in our homemade red sauce, served with fettuccine</p>
                         </div>
-                        <p class="menu-item-description">Jumbo shrimp, calamari, fresh clams & mussels, sautéed in our homemade red sauce, served with fettuccine</p>
                     </div>
 
                     <div class="menu-item">

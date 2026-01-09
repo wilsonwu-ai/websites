@@ -674,98 +674,103 @@
             }
         }
 
-        /* Menu Items */
+        /* Menu Items - Visual Card Grid */
         .menu-items {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
         }
 
         .menu-item {
             background: var(--warm-white);
             border-radius: var(--radius-md);
-            padding: 20px 24px;
+            overflow: hidden;
             box-shadow: var(--shadow-soft);
             transition: var(--transition);
             border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-item:hover {
-            box-shadow: var(--shadow-medium);
-            border-color: var(--primary);
+            box-shadow: var(--shadow-large);
+            transform: translateY(-4px);
         }
 
-        /* Menu items with individual images */
+        /* Menu item with image (card style) */
         .menu-item.has-image {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 20px;
-            padding: 16px;
+            padding: 0;
         }
 
         .menu-item-image {
-            width: 100px;
-            height: 100px;
-            border-radius: var(--radius-sm);
+            width: 100%;
+            height: 160px;
             background-size: cover;
             background-position: center;
-            flex-shrink: 0;
+            position: relative;
+        }
+
+        .menu-item-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.15), transparent);
         }
 
         .menu-item-content {
+            padding: 16px 18px 18px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            flex: 1;
         }
 
-        .menu-item.has-image .menu-item-header {
-            margin-bottom: 6px;
-        }
-
-        @media (max-width: 500px) {
-            .menu-item.has-image {
-                grid-template-columns: 80px 1fr;
-                gap: 14px;
-            }
-
-            .menu-item-image {
-                width: 80px;
-                height: 80px;
-            }
+        /* Items without images */
+        .menu-item:not(.has-image) {
+            padding: 18px 20px;
         }
 
         .menu-item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 8px;
         }
 
         .menu-item-title {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .menu-item-title h4 {
             font-family: 'Figtree', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--charcoal);
+            line-height: 1.3;
         }
 
         .signature-star {
             color: var(--accent);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .item-badge {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: var(--radius-sm);
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -1416,13 +1421,12 @@
         <div class="menu-content">
             <!-- STARTERS -->
             <section class="menu-section" id="starters">
-                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1541014741259-de529411b96a?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Starters</h2>
                 </div>
                 <div class="menu-items">
                     <div class="menu-item has-image">
-                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?w=300&q=80');"></div>
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?w=400&q=80');"></div>
                         <div class="menu-item-content">
                             <div class="menu-item-header">
                                 <div class="menu-item-title">
@@ -1435,139 +1439,174 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Eggplant Chips</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Eggplant Chips</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
+                            <p class="menu-item-description">Thin & crispy eggplant drizzled with wildflower honey & topped with flaky sea salt</p>
                         </div>
-                        <p class="menu-item-description">Thin & crispy eggplant drizzled with wildflower honey & topped with flaky sea salt</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Fried Calamari</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Fried Calamari</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$16</span><span class="price-divider">/</span><span class="price-card">$16.56</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$16</span><span class="price-divider">/</span><span class="price-card">$16.56</span></span>
+                            <p class="menu-item-description">Hand-battered and served with our San Marzano marinara</p>
                         </div>
-                        <p class="menu-item-description">Hand-battered and served with our San Marzano marinara</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Caprese</h4>
-                                <span class="item-badge badge-gf">GF</span>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Caprese</h4>
+                                    <span class="item-badge badge-gf">GF</span>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
+                            <p class="menu-item-description">Sliced tomatoes and fire roasted red peppers layered with fresh mozzarella, basil, and balsamic glaze</p>
                         </div>
-                        <p class="menu-item-description">Sliced tomatoes and fire roasted red peppers layered with fresh mozzarella, basil, and balsamic glaze</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Eggplant Rollatini</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1629115916087-7e8c114a24ed?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Eggplant Rollatini</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
+                            <p class="menu-item-description">(2) Breaded eggplant rolls filled with ricotta & parmigiana, baked and topped with marinara & melted mozzarella</p>
                         </div>
-                        <p class="menu-item-description">(2) Breaded eggplant rolls filled with ricotta & parmigiana, baked and topped with marinara & melted mozzarella</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Fried Mozzarella</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1531749668029-2db88e4276c7?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Fried Mozzarella</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$14</span><span class="price-divider">/</span><span class="price-card">$14.49</span></span>
+                            <p class="menu-item-description">Thick-sliced fresh mozzarella, hand-breaded and fried to golden perfection. Served with marinara</p>
                         </div>
-                        <p class="menu-item-description">Thick-sliced fresh mozzarella, hand-breaded and fried to golden perfection. Served with marinara</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>River Oaks Wings</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>River Oaks Wings</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$16</span><span class="price-divider">/</span><span class="price-card">$16.56</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$16</span><span class="price-divider">/</span><span class="price-card">$16.56</span></span>
+                            <p class="menu-item-description">(8) Crispy seasoned and hand-battered chicken wings with choice of sauce: Mild, Hot, BBQ, Dry. 1 flavor per order</p>
                         </div>
-                        <p class="menu-item-description">(8) Crispy seasoned and hand-battered chicken wings with choice of sauce: Mild, Hot, BBQ, Dry. 1 flavor per order</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Mussels Marinara or Spicy Fra Diavolo</h4>
-                                <span class="item-badge badge-spicy">Spicy Option</span>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1568158879083-c42860933ed7?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Mussels Marinara</h4>
+                                    <span class="item-badge badge-spicy">Spicy Option</span>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$16</span><span class="price-divider">/</span><span class="price-card">$16.56</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$16</span><span class="price-divider">/</span><span class="price-card">$16.56</span></span>
+                            <p class="menu-item-description">Fresh mussels sautéed in our classic OR spicy San Marzano marinara</p>
                         </div>
-                        <p class="menu-item-description">Fresh mussels sautéed in our classic OR spicy San Marzano marinara</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <span class="signature-star">★</span>
-                                <h4>Fresh-Cut Fries with Dipping Sauce Flight</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <span class="signature-star">★</span>
+                                    <h4>Fresh-Cut Fries</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$11</span><span class="price-divider">/</span><span class="price-card">$11.39</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$11</span><span class="price-divider">/</span><span class="price-card">$11.39</span></span>
+                            <p class="menu-item-description">Hand-cut Idaho potatoes, fried & served with 3 dipping sauces: Pesto Aioli, Truffle Aioli, and Ketchup</p>
                         </div>
-                        <p class="menu-item-description">Hand-cut Idaho potatoes, fried & served with 3 dipping sauces: Pesto Aioli, Truffle Aioli, and Ketchup</p>
                     </div>
                 </div>
             </section>
 
             <!-- SALADS -->
             <section class="menu-section" id="salads">
-                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Salads</h2>
                 </div>
                 <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>House Salad</h4>
-                                <span class="item-badge badge-gf">GF</span>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>House Salad</h4>
+                                    <span class="item-badge badge-gf">GF</span>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$11</span><span class="price-divider">/</span><span class="price-card">$11.39</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$11</span><span class="price-divider">/</span><span class="price-card">$11.39</span></span>
+                            <p class="menu-item-description">Mixed greens, cherry tomatoes, black olives, sliced cucumbers, shredded carrots and red onions</p>
                         </div>
-                        <p class="menu-item-description">Mixed greens, cherry tomatoes, black olives, sliced cucumbers, shredded carrots and red onions</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Caesar Salad</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Caesar Salad</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$13</span><span class="price-divider">/</span><span class="price-card">$13.45</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$13</span><span class="price-divider">/</span><span class="price-card">$13.45</span></span>
+                            <p class="menu-item-description">Crisp romaine lettuce topped with croutons, shaved and grated parmigiana, and tossed in Caesar dressing</p>
                         </div>
-                        <p class="menu-item-description">Crisp romaine lettuce topped with croutons, shaved and grated parmigiana, and tossed in Caesar dressing</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <span class="signature-star">★</span>
-                                <h4>River Oaks Salad</h4>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <span class="signature-star">★</span>
+                                    <h4>River Oaks Salad</h4>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$18</span><span class="price-divider">/</span><span class="price-card">$18.63</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$18</span><span class="price-divider">/</span><span class="price-card">$18.63</span></span>
+                            <p class="menu-item-description">Crisp romaine lettuce topped with chopped grilled chicken breast, breaded eggplant, shredded mozzarella, and roasted red peppers</p>
                         </div>
-                        <p class="menu-item-description">Crisp romaine lettuce topped with chopped grilled chicken breast, breaded eggplant, shredded mozzarella, and roasted red peppers</p>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <div class="menu-item-title">
-                                <h4>Spinach Goat Cheese Salad</h4>
-                                <span class="item-badge badge-gf">GF</span>
+                    <div class="menu-item has-image">
+                        <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1607532941433-304659e8198a?w=400&q=80');"></div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <div class="menu-item-title">
+                                    <h4>Spinach Goat Cheese Salad</h4>
+                                    <span class="item-badge badge-gf">GF</span>
+                                </div>
+                                <span class="menu-item-price"><span class="price-cash">$17</span><span class="price-divider">/</span><span class="price-card">$17.59</span></span>
                             </div>
-                            <span class="menu-item-price"><span class="price-cash">$17</span><span class="price-divider">/</span><span class="price-card">$17.59</span></span>
+                            <p class="menu-item-description">Fresh baby spinach topped with goat cheese, crispy bacon, dried figs, shaved almonds, and red onion</p>
                         </div>
-                        <p class="menu-item-description">Fresh baby spinach topped with goat cheese, crispy bacon, dried figs, shaved almonds, and red onion</p>
                     </div>
                 </div>
 

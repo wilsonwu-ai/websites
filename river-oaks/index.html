@@ -226,8 +226,9 @@
             justify-content: center;
             text-align: center;
             background: linear-gradient(135deg, rgba(93, 26, 33, 0.85) 0%, rgba(114, 47, 55, 0.75) 50%, rgba(92, 60, 62, 0.8) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.02)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.02)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80');
             background-size: cover;
+            background-position: center;
             padding: 120px 20px 80px;
             position: relative;
         }
@@ -239,7 +240,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 Q120 60 100 100 Q80 140 100 180" stroke="rgba(201,169,98,0.1)" stroke-width="2" fill="none"/><path d="M60 30 Q80 70 60 110 Q40 150 60 190" stroke="rgba(201,169,98,0.08)" stroke-width="1.5" fill="none"/><path d="M140 30 Q160 70 140 110 Q120 150 140 190" stroke="rgba(201,169,98,0.08)" stroke-width="1.5" fill="none"/></svg>');
+            background: none;
             opacity: 0.5;
         }
 
@@ -353,7 +354,10 @@
         }
 
         .story-image {
-            background: linear-gradient(135deg, var(--olive) 0%, var(--olive-light) 100%);
+            background: linear-gradient(135deg, rgba(92, 107, 74, 0.3) 0%, rgba(122, 139, 102, 0.3) 100%),
+                        url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 8px;
             height: 400px;
             display: flex;
@@ -364,9 +368,9 @@
         }
 
         .story-image::before {
-            content: '🍝';
+            content: '';
             font-size: 8rem;
-            opacity: 0.3;
+            opacity: 0;
         }
 
         .story-image-frame {
@@ -422,16 +426,29 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            background-size: cover;
+            background-position: center;
         }
 
         .dish-image::before {
-            font-size: 4rem;
-            opacity: 0.5;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3) 100%);
         }
 
-        .dish-card:nth-child(1) .dish-image::before { content: '🦞'; }
-        .dish-card:nth-child(2) .dish-image::before { content: '🍷'; }
-        .dish-card:nth-child(3) .dish-image::before { content: '🍕'; }
+        .dish-card:nth-child(1) .dish-image {
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80');
+        }
+        .dish-card:nth-child(2) .dish-image {
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&q=80');
+        }
+        .dish-card:nth-child(3) .dish-image {
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1612874742237-6526221588e3?w=600&q=80');
+        }
 
         .dish-badge {
             position: absolute;
@@ -494,7 +511,10 @@
 
         /* ========== Menu Page ========== */
         .menu-hero {
-            background: linear-gradient(135deg, rgba(92, 107, 74, 0.9) 0%, rgba(93, 26, 33, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(92, 107, 74, 0.88) 0%, rgba(93, 26, 33, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1498579150354-977475b7ea0b?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             padding: 140px 20px 60px;
             text-align: center;
         }
@@ -593,6 +613,27 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             font-style: italic;
+        }
+
+        .menu-section-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-section-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(114, 47, 55, 0.4) 0%, transparent 50%, rgba(92, 107, 74, 0.3) 100%);
         }
 
         /* Menu Items */
@@ -770,7 +811,10 @@
 
         /* ========== About Page ========== */
         .about-hero {
-            background: linear-gradient(135deg, rgba(196, 92, 62, 0.9) 0%, rgba(114, 47, 55, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(196, 92, 62, 0.88) 0%, rgba(114, 47, 55, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             padding: 140px 20px 80px;
             text-align: center;
         }
@@ -853,7 +897,10 @@
 
         /* ========== Contact Page ========== */
         .contact-hero {
-            background: linear-gradient(135deg, rgba(92, 107, 74, 0.9) 0%, rgba(122, 139, 102, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(92, 107, 74, 0.88) 0%, rgba(122, 139, 102, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             padding: 140px 20px 80px;
             text-align: center;
         }
@@ -1259,6 +1306,7 @@
         <div class="menu-content">
             <!-- STARTERS -->
             <section class="menu-section" id="starters">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1541014741259-de529411b96a?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Starters</h2>
                 </div>
@@ -1361,6 +1409,7 @@
 
             <!-- SALADS -->
             <section class="menu-section" id="salads">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Salads</h2>
                 </div>
@@ -1435,6 +1484,7 @@
 
             <!-- PASTA -->
             <section class="menu-section" id="pasta">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Pasta</h2>
                 </div>
@@ -1527,6 +1577,7 @@
 
             <!-- SPECIALTY PASTA -->
             <section class="menu-section" id="specialty-pasta">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Specialty Pasta</h2>
                 </div>
@@ -1617,6 +1668,7 @@
 
             <!-- BUILD YOUR OWN PIZZA -->
             <section class="menu-section" id="pizza">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Build Your Own Pizza</h2>
                 </div>
@@ -1764,6 +1816,7 @@
 
             <!-- RIVER OAKS FAVORITES -->
             <section class="menu-section" id="favorites">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>River Oaks Favorites</h2>
                     <span class="menu-section-note">Served with Pasta and House Salad (Caesar +$2)</span>
@@ -1831,6 +1884,7 @@
 
             <!-- CLASSIC ENTRÉES -->
             <section class="menu-section" id="entrees">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Classic Entrées</h2>
                     <span class="menu-section-note">Served with Pasta and House Salad (Caesar +$2)</span>
@@ -2018,6 +2072,7 @@
 
             <!-- DESSERTS -->
             <section class="menu-section" id="desserts">
+                <div class="menu-section-image" style="background-image: url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=1200&q=80');"></div>
                 <div class="menu-section-header">
                     <h2>Desserts</h2>
                 </div>

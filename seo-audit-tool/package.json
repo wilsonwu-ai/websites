@@ -1,0 +1,19 @@
+{
+  "name": "seo-audit-tool",
+  "version": "1.0.0",
+  "description": "Technical SEO Audit Tool - Analyze websites for SEO issues",
+  "scripts": {
+    "setup": "cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd server && npm run build && cd ../client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": ["seo", "audit", "crawler", "analysis"],
+  "author": "Snappy",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
